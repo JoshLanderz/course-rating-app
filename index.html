@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js Website Mockup</title>
+    <link rel="stylesheet" href="fst-styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Main Section for Updates & Notices -->
+        <section>
+            <h2>Updates & Notices</h2>
+            <p>{{ updateMessage }}</p>
+        </section>
+
+        <!-- Search Engine for 3 Subjects -->
+        <section>
+            <h2>Search Subjects</h2>
+            <!--Search Engine-->
+            <input type="text" v-model="searchQuery" placeholder="Search...">
+            <ul>
+                <li v-for="subject in filteredSubjects" :key="subject.id">
+                    {{ subject.name }}
+                    <button @click="likeSubject(subject.id)">Like ({{ subject.likes }})</button>
+                    <button @click="rateSubject(subject.id)">Rate ({{ subject.rating }}/5)</button>
+                    <div>
+                        <textarea v-model="subject.feedback" placeholder="Leave feedback"></textarea>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script src="script.js">
+    </script>
+</body>
+</html>
